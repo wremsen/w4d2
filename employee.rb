@@ -6,7 +6,13 @@ class Employee
         @title = title
         @salary = salary
         @boss = boss
-    end 
+    end
+
+    def bonus(mult)
+        bonus = salary * mult
+    end
+
+    
     
 
 end
