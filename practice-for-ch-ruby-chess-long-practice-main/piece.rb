@@ -1,6 +1,6 @@
 class Piece
-  
-
+    
+    
     def initialize (color, board, pos)
         @color = color
         @board = board
@@ -25,12 +25,12 @@ class Piece
     end 
 
     def symbol 
-
+        puts "symbol"
     end 
 
     private
     def move_into_check?(end_pos)
-        
+
     end 
 
 
