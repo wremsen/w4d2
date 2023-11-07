@@ -1,5 +1,5 @@
 require_relative 'employee'
-
+require 'byebug'
 class Manager < Employee
 
     attr_reader :employees
@@ -15,16 +15,24 @@ class Manager < Employee
 
     def bonus(mult)
         total = 0
-        @employees.each do |employee|
-            total += employee.salary
+        queue = [self]
+        until queue.empty?  
+            person = queue.shift
+            if person.is_a?(Manager)
+                person.employees.each do |ele|
+                    total += ele.salary
+                    queue << ele
+                end 
+            end
         end
+
         total * mult
     end
 
 end
 
 ned = Manager.new("Ned", "Founder", 1000000)
-darren = Manager.new("Darren", "Manager", 70000, ned)
+darren = Manager.new("Darren", "Manager", 78000, ned)
 
 shawna = Employee.new("Shawna", "TA", 12000, darren)
 david = Employee.new("David", "TA", 10000, darren)
@@ -38,3 +46,4 @@ p ned.bonus(5)
 p darren.bonus(4)
 p david.bonus(3)
 p ned.employees
+
