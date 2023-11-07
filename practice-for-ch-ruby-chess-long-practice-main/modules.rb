@@ -1,17 +1,29 @@
-module Slidable 
+module Slidable
+
+
+    def moves 
+        moves = []
+
+        HORIZONTAL_VERT_DIRS.each do |ele|
+            
+
+    end
+
+
+    
 
     private
-    HORIZONTAL_DIRS = [
-        [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7],
-        [0, -1], [0, -2], [0, -3], [0, -4], [0, -5], [0, -6], [0, -7]
+    HORIZONTAL_VERT_DIRS = [
+        [0, 1], [0, -1]
+        [1, 0]. [-1, 0]
     ]
     DIAG_DIRS = [
-         
-
+         [1, 1], [1, -1]
+         [-1, -1], [-1, 1]
     ]
 end 
 
 module Steppable
 
-
+   
 end 
