@@ -40,3 +40,6 @@ class Board
 
 end
 
+board = Board.new
+p board[[0,0]]
+
