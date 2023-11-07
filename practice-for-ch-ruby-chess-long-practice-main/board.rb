@@ -25,12 +25,15 @@ class Board
     end 
 
     def move_piece(start_pos, end_pos)
-        raise "No piece there" if @rows[start_pos].is_a(Piece) 
-        # piece cannot move to end_pos
+        raise "No piece there" if !self[start_pos].is_a?(Piece)
 
-        piece = @rows[start_pos[0]][start_pos[1]]
-        @rows[end_pos[0]][end_pos[1]] = piece
-        @rows[start_pos[0]][start_pos[1]] = nil
+        piece = self[start_pos]
+        self[end_pos] = piece
+        self[start_pos] = nil
+
+        # piece = @rows[start_pos[0]][start_pos[1]]
+        # @rows[end_pos[0]][end_pos[1]] = piece
+        # @rows[start_pos[0]][start_pos[1]] = nil
     end 
 
 
