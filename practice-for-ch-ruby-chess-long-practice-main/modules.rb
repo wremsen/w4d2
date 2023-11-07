@@ -5,9 +5,10 @@ module Slidable
         moves = []
 
         HORIZONTAL_VERT_DIRS.each do |ele|
-            
+        end
 
     end
+
 
 
     
