@@ -1,11 +1,11 @@
 require_relative "piece"
-require_relative "modules"
+require_relative "slideable"
 
 class Rook < Piece
     include Slidable
 
     def symbol
-        ''
+        "♜".colorize(color)
     end 
 
     private 

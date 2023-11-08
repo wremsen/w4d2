@@ -1,12 +1,12 @@
 module Slidable
 
     HORIZONTAL_VERT_DIRS = [
-        [0, 1], [0, -1]
-        [1, 0]. [-1, 0]
+        [0, 1], [0, -1],
+        [1, 0], [-1, 0]
     ].freeze
 
     DIAG_DIRS = [
-         [1, 1], [1, -1]
+         [1, 1], [1, -1],
          [-1, -1], [-1, 1]
     ].freeze
 
@@ -26,7 +26,7 @@ module Slidable
             dx = ele[0]
             dy = ele[1]
             my_dir_moves = grow_unblocked_moves_in_dir(dx, dy)
-            moves + my_dir_moves
+            moves += my_dir_moves
         end
 
         moves
@@ -43,21 +43,23 @@ module Slidable
 
     def grow_unblocked_moves_in_dir(dx, dy)
         dir_moves = []
-
+        
         queue = [self.pos]
         until queue.empty?
             current_pos = queue.shift
             delta = [dx, dy]
             new_pos = current_pos.zip(delta).map  {|a, b| a + b}
 
-            piece = self.board[new_pos]
+            
 
             if self.board.valid_pos?(new_pos) == false
-                next
+                break
             end
 
+            piece = self.board[new_pos]
+
             if !piece.is_a?(NullPiece) && piece.color == self.color
-                next
+                break
             end
 
             if !piece.is_a?(NullPiece) && piece.color != self.color
@@ -72,12 +74,4 @@ module Slidable
         dir_moves
     end
 
-
-
-
-
-
-
-        dir_moves
-    end
 end 

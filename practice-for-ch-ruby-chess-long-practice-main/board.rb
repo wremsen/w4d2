@@ -1,15 +1,16 @@
-require_relative 'piece'
+require_relative 'pieces'
+
 
 class Board
     attr_reader :rows
 
     def initialize
-        @rows = Array.new(8) {Array.new(8, nil)}
-        @rows.each_with_index do |row, i|
-            if [0, 1, 6, 7].include?(i)
-                row.map! {|ele| ele = Piece.new}
-            end
-        end
+        @rows = Array.new(8) {Array.new(8, NullPiece.new)}
+        # @rows.each_with_index do |row, i|
+        #     if [0, 1, 6, 7].include?(i)
+        #         row.map! {|ele| ele = Piece.new}
+        #     end
+        # end
     end
 
     def [](pos) 
@@ -36,7 +37,7 @@ class Board
         # @rows[start_pos[0]][start_pos[1]] = nil
     end 
 
-    def valid_pos(pos)
+    def valid_pos?(pos)
         row = pos[0]
         col = pos[1]
         return (0..7).to_a.include?(row) && (0..7).to_a.include?(col)

@@ -2,7 +2,7 @@ require_relative "piece"
 
 
 class NullPiece < Piece
-    include Singelton
+    # include Singelton
 
     def initialize
         @color
@@ -10,6 +10,10 @@ class NullPiece < Piece
 
     def symbol
         ' '.colorize(color)
+    end 
+
+    def inspect
+        "_"
     end 
 
 end 
