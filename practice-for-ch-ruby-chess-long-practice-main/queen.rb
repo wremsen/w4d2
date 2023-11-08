@@ -5,7 +5,7 @@ class Queen < Piece
     include Slidable
 
     def symbol
-        return :Q
+        "♛".colorize(color)
     end 
 
     private 

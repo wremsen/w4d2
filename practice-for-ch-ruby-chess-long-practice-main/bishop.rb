@@ -5,7 +5,7 @@ class Bishop < Piece
     include Slidable
 
     def symbol
-        return :B
+        "♗".colorize(color)
     end 
 
     private 

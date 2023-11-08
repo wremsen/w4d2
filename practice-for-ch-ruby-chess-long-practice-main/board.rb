@@ -36,6 +36,11 @@ class Board
         # @rows[start_pos[0]][start_pos[1]] = nil
     end 
 
+    def valid_pos(pos)
+        row = pos[0]
+        col = pos[1]
+        return (0..7).to_a.include?(row) && (0..7).to_a.include?(col)
+    end 
 
 
 end

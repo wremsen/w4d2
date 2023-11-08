@@ -50,15 +50,17 @@ module Slidable
             delta = [dx, dy]
             new_pos = current_pos.zip(delta).map  {|a, b| a + b}
 
-            if self.valid_move?(new_pos) == false
+            piece = self.board[new_pos]
+
+            if self.board.valid_pos?(new_pos) == false
                 next
             end
 
-            if !self.board[new_pos].is_a?(NullPiece) && self.board[new_pos].color == self.color
+            if !piece.is_a?(NullPiece) && piece.color == self.color
                 next
             end
 
-            if !self.board[new_pos].is_a?(NullPiece) && self.board[new_pos].color != self.color
+            if !piece.is_a?(NullPiece) && piece.color != self.color
                 dir_moves << new_pos
                 break
             end
