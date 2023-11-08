@@ -1,3 +1,5 @@
+require 'colorize'
+
 class Piece
 
     attr_reader :color, :pos, :board
@@ -32,6 +34,10 @@ class Piece
     private
     def move_into_check?(end_pos)
 
+    end 
+
+    def inspect
+        self.symbol
     end 
 
 
