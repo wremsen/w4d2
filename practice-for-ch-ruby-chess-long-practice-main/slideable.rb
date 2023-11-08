@@ -80,11 +80,4 @@ module Slidable
 
         dir_moves
     end
-
-
-end 
-
-module Steppable
-
-   
 end 

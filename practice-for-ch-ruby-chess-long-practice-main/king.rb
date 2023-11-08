@@ -9,7 +9,7 @@ class King < Piece
     end 
 
     private 
-    def move_dirs
-        
+    def move_diffs
+
     end 
 end 
