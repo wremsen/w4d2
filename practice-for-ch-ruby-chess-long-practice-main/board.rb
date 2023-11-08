@@ -6,11 +6,8 @@ class Board
 
     def initialize
         @rows = Array.new(8) {Array.new(8, NullPiece.new)}
-        # @rows.each_with_index do |row, i|
-        #     if [0, 1, 6, 7].include?(i)
-        #         row.map! {|ele| ele = Piece.new}
-        #     end
-        # end
+
+        populate
     end
 
     def [](pos) 
@@ -41,7 +38,23 @@ class Board
         row = pos[0]
         col = pos[1]
         return (0..7).to_a.include?(row) && (0..7).to_a.include?(col)
-    end 
+    end
+
+
+
+    private
+    def populate
+
+    end
+
+    def back_row_gen
+        row = [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook]
+
+    end
+
+    def pawn_row_gen
+        
+    end
 
 
 end
